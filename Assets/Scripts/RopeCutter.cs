@@ -28,10 +28,10 @@ public class RopeCutter : MonoBehaviour {
 					Destroy(hit.collider.gameObject);//cut blade
 				    
 					// remove all ropes
-					int count_child = hit.transform.parent.gameObject.transform.childCount;
+					int count_child = hit.transform.parent.gameObject.transform.childCount + 1; // +1 for the anchor
 					for (int i = 0 ; i < count_child-1; i++)
 					{
-						Destroy(hit.transform.parent.gameObject.transform.GetChild(i).gameObject , 2f);
+						Destroy(hit.transform.parent.gameObject.transform.GetChild(i).gameObject);
 					}
 				}
 			}
