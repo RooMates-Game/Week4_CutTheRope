@@ -6,6 +6,8 @@ public class Weight : MonoBehaviour {
 	public float distanceFromChainEnd = 0.6f;
 
 	[SerializeField] [Tooltip("Name of scene to move to when triggering the given tag")] string sceneName;
+
+	Vector3 viewportPosition;
 	public void ConnectRopeEnd (Rigidbody2D endRB)
 	{
 		HingeJoint2D joint = gameObject.AddComponent<HingeJoint2D>();
@@ -24,6 +26,16 @@ public class Weight : MonoBehaviour {
 		if(other.tag =="candy")
 		{
 			Destroy(other.gameObject);
+		}
+	}
+
+	private void Update() {
+		viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+		 // Check if the object is outside the viewport
+		if (viewportPosition.x < 0 || viewportPosition.x > 1 || 
+			viewportPosition.y < 0 || viewportPosition.y > 1)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 
