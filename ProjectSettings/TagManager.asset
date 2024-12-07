@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - link
+  - candy
+  - frog
+  - frogAnimation
   layers:
   - Default
   - TransparentFX

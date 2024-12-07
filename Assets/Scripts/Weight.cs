@@ -5,6 +5,7 @@ public class Weight : MonoBehaviour {
 
 	public float distanceFromChainEnd = 0.6f;
 
+	[SerializeField] [Tooltip("Name of scene to move to when triggering the given tag")] string sceneName;
 	public void ConnectRopeEnd (Rigidbody2D endRB)
 	{
 		HingeJoint2D joint = gameObject.AddComponent<HingeJoint2D>();
@@ -18,17 +19,12 @@ public class Weight : MonoBehaviour {
 	{
 		if(other.tag =="frog")
 		{
-			Invoke("Reset" , 2);
+			SceneManager.LoadScene(sceneName);
 		}
 		if(other.tag =="candy")
 		{
 			Destroy(other.gameObject);
 		}
 	}
-   
-   void Reset()
-   {
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-   }
 
 }
