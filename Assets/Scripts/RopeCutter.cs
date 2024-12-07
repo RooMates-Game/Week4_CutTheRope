@@ -23,7 +23,7 @@ public class RopeCutter : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast(Cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 			if (hit.collider != null)
 			{
-				if (hit.collider.tag == "Link")
+				if (hit.collider.tag == "link")
 				{
 					Destroy(hit.collider.gameObject);//cut blade
 				    

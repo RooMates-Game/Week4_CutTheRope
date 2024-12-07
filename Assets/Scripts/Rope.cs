@@ -1,46 +1,32 @@
 using UnityEngine;
 
-public class Rope : MonoBehaviour
-{
-    [SerializeField] private Rigidbody2D hook;
+public class Rope : MonoBehaviour {
 
-    [SerializeField] private GameObject linkPrefab;
+	public Rigidbody2D hook;
+	public GameObject linkPrefab;
+	public Weight weigth;
+	public int links = 7;
+	
+	
+	GameObject link;
 
-    [SerializeField] private int links = 7;
+	void Start () {
+		GenerateRope();
+	}
 
-    [SerializeField] private Weight weight;
-
-    private Transform linksFolder; // A folder to hold all the links
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        // hook = hook.GetComponent<Rigidbody2D>();
-        // Create a new folder (GameObject) to store the links
-        GameObject folder = new GameObject("LinksFolder");
-        linksFolder = folder.transform;
-        GenerateRope();
-    }
-
-    void GenerateRope()
-    {
-        Rigidbody2D previousRB = hook;
-        for (int i = 0; i < links; i++)
-        {
-            // Instantiate the link and set its parent to the folder
-            GameObject link = Instantiate(linkPrefab, linksFolder);
-            HingeJoint2D joint = link.GetComponent<HingeJoint2D>();
-            joint.connectedBody = previousRB;
-
-            if(i < links - 1)
-            {
-                previousRB = link.GetComponent<Rigidbody2D>();  
-            }
-            else
-            {
-                weight.connectedRopeEnd(link.GetComponent<Rigidbody2D>());
-            }
-            
-        }
-    }
+	void GenerateRope ()
+	{
+		Rigidbody2D previousRB = hook;
+		
+		for (int i = 0; i < links; i++) //create ropes
+		{
+			link = Instantiate(linkPrefab, transform);
+			HingeJoint2D joint = link.GetComponent<HingeJoint2D>();
+			joint.connectedBody = previousRB;
+			previousRB = link.GetComponent<Rigidbody2D>();
+			
+		}
+		weigth.ConnectRopeEnd(link.GetComponent<Rigidbody2D>());
+	}
 
 }
