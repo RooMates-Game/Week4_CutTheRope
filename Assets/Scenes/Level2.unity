@@ -1514,7 +1514,7 @@ MonoBehaviour:
   hook: {fileID: 1660044351}
   linkPrefab: {fileID: 158136310491149920, guid: 927b8209b15229e4baa1c956e8a9d0ee, type: 3}
   weigth: {fileID: 188171091}
-  links: 7
+  links: 10
 --- !u!1 &823489437
 GameObject:
   m_ObjectHideFlags: 0
