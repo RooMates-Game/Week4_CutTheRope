@@ -1,10 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D.IK;
 
 public class Weight : MonoBehaviour {
 
 	public float distanceFromChainEnd = 0.6f;
+	private CandyCounter candyCounter;
 
+	private void Start() {
+		candyCounter = Object.FindFirstObjectByType<CandyCounter>();
+	}
+	
+	
 	[SerializeField] [Tooltip("Name of scene to move to when triggering the given tag")] string sceneName;
 
 	Vector3 viewportPosition;
@@ -26,6 +33,11 @@ public class Weight : MonoBehaviour {
 		if(other.tag =="candy")
 		{
 			Destroy(other.gameObject);
+			candyCounter.AddCandy(1);
+
+			
+			
+			
 		}
 	}
 

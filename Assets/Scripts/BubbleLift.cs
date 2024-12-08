@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubbleLift : MonoBehaviour
 {   
@@ -25,6 +27,10 @@ public class BubbleLift : MonoBehaviour
         {
             ballTransform = other.transform;
             isTriggered = true;
+        }
+
+        if (other.CompareTag("frog")){
+            SceneManager.LoadScene("Level1");
         }
         
     }

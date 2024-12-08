@@ -9,6 +9,7 @@ TagManager:
   - frog
   - frogAnimation
   - ball
+  - candyCounter
   layers:
   - Default
   - TransparentFX
