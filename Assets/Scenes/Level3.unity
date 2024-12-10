@@ -418,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7271a92b562281f4bae1b0fd8c6a5c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggeringTag: link
+  bladeTimer: 0.05
 --- !u!1 &188171085
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +587,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromChainEnd: 0.6
-  sceneName: 
+  triggeringFrog: frog
+  triggeringCandy: candy
+  sceneName: Level1
 --- !u!114 &188171092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2862,6 +2866,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liftForce: 1.71
+  triggeringTag: ball
+  sceneName: Level1
 --- !u!50 &1931685824
 Rigidbody2D:
   serializedVersion: 5

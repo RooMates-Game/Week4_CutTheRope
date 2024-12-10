@@ -6,7 +6,9 @@ public class BubbleLift : MonoBehaviour
     [SerializeField] private float liftForce = 1f;
     private Transform ballTransform;
     private bool isTriggered = false;
-	[SerializeField] private string triggeringTag;
+	[SerializeField] private string triggeringBall;
+	[SerializeField] private string triggeringFrog;
+
 	[SerializeField] private string sceneName;
 
 
@@ -26,13 +28,13 @@ public class BubbleLift : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(triggeringTag))
+        if (other.CompareTag(triggeringBall))
         {
             ballTransform = other.transform;
             isTriggered = true;
         }
 
-        if (other.CompareTag(triggeringTag)){
+        if (other.CompareTag(triggeringFrog)){
             SceneManager.LoadScene(sceneName);
         }
         

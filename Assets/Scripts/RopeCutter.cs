@@ -1,8 +1,7 @@
 using UnityEngine;
 
 public class RopeCutter : MonoBehaviour
-{
-	
+{	
 	Rigidbody2D rb;
 	Camera Cam;
 	[SerializeField] private string triggeringTag;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Rope : MonoBehaviour
 {
-	public Rigidbody2D hook;
+		public Rigidbody2D hook;
 	public GameObject linkPrefab;
 	public Weight weigth;
 	[SerializeField] private int links = 7;
