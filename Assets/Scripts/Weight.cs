@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.U2D.IK;
 
-public class Weight : MonoBehaviour {
+public class Weight : MonoBehaviour
+{
 
-	public float distanceFromChainEnd = 0.6f;
+	[SerializeField] private float distanceFromChainEnd = 0.6f;
+	[SerializeField] private string triggeringTag;
 	private CandyCounter candyCounter;
 
-	private void Start() {
+	private void Start()
+	{
 		candyCounter = Object.FindFirstObjectByType<CandyCounter>();
 	}
 	
@@ -26,24 +28,21 @@ public class Weight : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag =="frog")
+		if(other.CompareTag(triggeringTag))
 		{
 			SceneManager.LoadScene(sceneName);
 		}
-		if(other.tag =="candy")
+		if(other.CompareTag(triggeringTag))
 		{
 			Destroy(other.gameObject);
 			candyCounter.AddCandy(1);
-
-			
-			
-			
 		}
 	}
 
-	private void Update() {
+	private void Update()
+	{
 		viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
-		 // Check if the object is outside the viewport
+		 // Check if the object is outside the viewport.
 		if (viewportPosition.x < 0 || viewportPosition.x > 1 || 
 			viewportPosition.y < 0 || viewportPosition.y > 1)
 		{

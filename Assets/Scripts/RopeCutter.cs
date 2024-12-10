@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class RopeCutter : MonoBehaviour {
+public class RopeCutter : MonoBehaviour
+{
 	
 	Rigidbody2D rb;
 	Camera Cam;
+	[SerializeField] private string triggeringTag;
+	[SerializeField] private float bladeTimer = 0.05f;
+
+
 
 	void Start()
 	{
@@ -11,19 +16,17 @@ public class RopeCutter : MonoBehaviour {
 	   Cam = Camera.main;
 	}
 
-
-
 	void Update () 
 	{
 		if (Input.GetMouseButton(0))
 		{
 			rb.position = Cam.ScreenToWorldPoint(Input.mousePosition);
-			Invoke("visible_blade" , 0.05f);
+			Invoke(nameof(Visible_blade), bladeTimer);
 			
 			RaycastHit2D hit = Physics2D.Raycast(Cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 			if (hit.collider != null)
 			{
-				if (hit.collider.tag == "link")
+				if (hit.collider.CompareTag(triggeringTag))
 				{
 					Destroy(hit.collider.gameObject);//cut blade
 				    
@@ -43,7 +46,7 @@ public class RopeCutter : MonoBehaviour {
            gameObject.transform.GetChild(0).gameObject.SetActive(false);
 		}
 	}
-	void visible_blade()
+	void Visible_blade()
 	{
        gameObject.transform.GetChild(0).gameObject.SetActive(true);
 	}

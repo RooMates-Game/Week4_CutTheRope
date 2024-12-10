@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +6,13 @@ public class BubbleLift : MonoBehaviour
     [SerializeField] private float liftForce = 1f;
     private Transform ballTransform;
     private bool isTriggered = false;
+	[SerializeField] private string triggeringTag;
+	[SerializeField] private string sceneName;
 
-    private void Update() {
+
+
+    private void Update()
+    {
         if(isTriggered)
         {
             transform.Translate(liftForce * Time.deltaTime * Vector2.up);
@@ -23,14 +26,14 @@ public class BubbleLift : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("ball"))
+        if (other.CompareTag(triggeringTag))
         {
             ballTransform = other.transform;
             isTriggered = true;
         }
 
-        if (other.CompareTag("frog")){
-            SceneManager.LoadScene("Level1");
+        if (other.CompareTag(triggeringTag)){
+            SceneManager.LoadScene(sceneName);
         }
         
     }

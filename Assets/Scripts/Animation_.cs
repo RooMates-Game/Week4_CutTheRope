@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Animation_ : MonoBehaviour
-{
-    
+public class Animation : MonoBehaviour
+{ 
     [SerializeField] private string targetTag; // Tag to check for
     [SerializeField] private Sprite newSprite;// New sprite to assign
 

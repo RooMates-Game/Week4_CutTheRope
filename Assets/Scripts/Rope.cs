@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Rope : MonoBehaviour {
-
+public class Rope : MonoBehaviour
+{
 	public Rigidbody2D hook;
 	public GameObject linkPrefab;
 	public Weight weigth;
-	public int links = 7;
+	[SerializeField] private int links = 7;
 	
 	
 	GameObject link;
 
-	void Start () {
+	void Start ()
+	{
 		GenerateRope();
 	}
 
@@ -28,5 +29,4 @@ public class Rope : MonoBehaviour {
 		}
 		weigth.ConnectRopeEnd(link.GetComponent<Rigidbody2D>());
 	}
-
 }
