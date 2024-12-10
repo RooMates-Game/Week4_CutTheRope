@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Animation_ : MonoBehaviour
 {
-    
     [SerializeField] private string targetTag; // Tag to check for
-    [SerializeField] private Sprite newSprite;// New sprite to assign
+    [SerializeField] private Sprite newSprite; // New sprite to assign
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +21,4 @@ public class Animation_ : MonoBehaviour
             }
         }
     }
-
-
 }
