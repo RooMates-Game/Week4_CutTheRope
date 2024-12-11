@@ -1,5 +1,10 @@
 # Week4_CutTheRope
 
+******************
+Itch.io:
+https://shuster.itch.io/cuttherope
+******************
+
 *Cut The Rope* is a fun and addictive puzzle game where the player uses their mouse to cut ropes and feed candy to a cute creature. The game challenges players to think strategically to solve puzzles and collect candies by cutting ropes in the right sequence.
 
 ## Game Description
